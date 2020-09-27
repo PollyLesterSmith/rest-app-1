@@ -14,7 +14,7 @@ MongoClient.connect(uri, (err, client) => {
                 currentTodos = results;
                 currentResult(currentTodos[0].todoString);
 
-                function currentResult(logResults) { console.log(logResults);}
+                function currentResult(logResults) { console.log('these are the results: '+logResults);}
             })
         })
     }})
