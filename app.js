@@ -12,6 +12,10 @@ MongoClient.connect(uri, (err, client) => {
         db.collection('todoText', (err, collection) => {
             collection.find().toArray( (err, results) => {
                 currentTodos = results;
+                logResullts(currentTodos[0]);
+                function currentTodos(todosForDisplay) {
+                    console.log('this is also called');
+                    console.log(todosForDisplay);}
                 console.log('this is called');
             })
         })
