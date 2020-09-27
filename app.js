@@ -2,7 +2,7 @@ const accessPass = require('./access.js')
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const uri = `mongodb+srv://pollyadmin:${accessPass}@learningcluster.rsfog.mongodb.net/todos?retryWrites=true&w=majority`;
-const server = require('express');
+const app = require('express');
 
 var currentTodosTextResult;
 var currentTodos;
@@ -14,13 +14,16 @@ MongoClient.connect(uri, (err, client) => {
                 currentTodos = results;
                 logResults(currentTodos[0]);
                 function logResults(todosForDisplay) {
-                    console.log('this is also called');
+                    
                     console.log(todosForDisplay.todoString);}
-                console.log('this is called');
+                
             })
         })
     }})
 ;
 
+app.get('/', (req, res) => {
+    res.send('Hey hoe');
+})
 
-
+app.listen(3000)
