@@ -15,7 +15,7 @@ MongoClient.connect(uri, (err, client) => {
                 logResults(currentTodos[0]);
                 function logResults(todosForDisplay) {
                     console.log('this is also called');
-                    console.log(todosForDisplay);}
+                    console.log(todosForDisplay.todoString);}
                 console.log('this is called');
             })
         })
