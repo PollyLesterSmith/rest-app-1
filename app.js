@@ -5,6 +5,9 @@ const uri = `mongodb+srv://pollyadmin:${accessPass}@learningcluster.rsfog.mongod
 const express = require('express');
 const app = express();
 
+const cors = require('cors');
+app.use(cors());
+
 var currentTodosTextResult;
 var currentTodos;
 MongoClient.connect(uri, (err, client) => {
