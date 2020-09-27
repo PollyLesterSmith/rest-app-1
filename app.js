@@ -18,7 +18,7 @@ MongoClient.connect(uri, (err, client) => {
     }})
 ;
 
-function currentResult();
+function currentResult()
 {
     currentTodosTextResult = currentTodos[0].todoString;
     console.log(currentTodosTextResult);
