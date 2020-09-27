@@ -30,4 +30,8 @@ app.get('/', (req, res) => {
     res.send('Hey hoe');
 })
 
+app.post('/', (req, res) => {
+    console.log('Request incoming!');
+})
+
 app.listen(3000)
