@@ -2,7 +2,7 @@ const accessPass = require('./access.js')
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const uri = `mongodb+srv://pollyadmin:${accessPass}@learningcluster.rsfog.mongodb.net/todos?retryWrites=true&w=majority`;
-const server = require('express');
+const express = require('express');
 const app = express();
 
 var currentTodosTextResult;
