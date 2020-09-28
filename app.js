@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    console.log('Request incoming!');
+    console.log(`Request incoming! : (${req.body})`);
 })
 
-app.listen(3000)
+app.listen(3000);
