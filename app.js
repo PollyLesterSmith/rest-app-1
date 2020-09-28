@@ -27,7 +27,7 @@ MongoClient.connect(uri, (err, client) => {
 ;
 
 app.get('/', (req, res) => {
-    res.send('Hey hoe');
+    res.send('Get requests go here.');
 })
 
 app.post('/', (req, res) => {
