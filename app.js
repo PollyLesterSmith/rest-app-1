@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
     res.send('Get requests go here.');
 })
 
-app.post('/', urlencodedParser (req, res) => {
+app.post('/', urlencodedParser, (req, res) => {
     console.log(req.body);
 })
 
