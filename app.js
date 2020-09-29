@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', urlencodedParser, (req, res) => {
-    console.log(req.body);
+    console.log(req.body.todoText);
 })
 
 app.listen(3000);
