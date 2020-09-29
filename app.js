@@ -11,7 +11,6 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/', (req, res) => {
-    var currentTodosTextResult;
     var currentTodos;
     MongoClient.connect(uri, (err, client) => {
         if (err) {console.log(`db connection error : ${err}`)} else {
@@ -21,8 +20,8 @@ app.get('/', (req, res) => {
                     currentTodos = results;
                     logResults(currentTodos[0]);
                     function logResults(todosForDisplay) {
-                        console.log(todosForDisplay.todoString);
-                        res.json(todosForDisplay.todoString);}
+                        console.log(todosForDisplay);
+                        res.json(todosForDisplay);}
                 })
             })
         }});
