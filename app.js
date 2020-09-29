@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
                     currentTodos = results;
                     logResults(currentTodos[0]);
                     function logResults(todosForDisplay) {
-                        console.log(todosForDisplay);
-                        res.json(todosForDisplay);}
+                        console.log(todosForDisplay.todoString);
+                        res.json(todosForDisplay.todoString);}
                 })
             })
         }});
