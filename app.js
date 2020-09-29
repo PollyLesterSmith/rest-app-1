@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
                     logResults(currentTodos[0]);
                     function logResults(todosForDisplay) {
                         console.log(todosForDisplay.todoString);
-                        res.json(todosForDisplay.todoString);}
+                        res.send(todosForDisplay.todoString);}
                 })
             })
         }});
