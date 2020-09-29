@@ -35,7 +35,7 @@ app.post('/', urlencodedParser, (req, res) => {
                 
                 collection.updateOne(
                     {"_id":mongodb.ObjectId("5f413f5a6e857a907f68d7d7")},
-                    {"todoString":newTodos})
+                    { $set: {"todoString":newTodos}})
 
                     logResults();
                     function logResults() {
