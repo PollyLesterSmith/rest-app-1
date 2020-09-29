@@ -5,7 +5,7 @@ const uri = `mongodb+srv://pollyadmin:${accessPass}@learningcluster.rsfog.mongod
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 const cors = require('cors');
 app.use(cors());
