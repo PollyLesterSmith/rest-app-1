@@ -10,26 +10,22 @@ const urlencodedParser = bodyParser.urlencoded({ extended: true });
 const cors = require('cors');
 app.use(cors());
 
-var currentTodosTextResult;
-var currentTodos;
-MongoClient.connect(uri, (err, client) => {
-    if (err) {console.log(`db connection error : ${err}`)} else {
-        var db = client.db('todos');
-        db.collection('todoText', (err, collection) => {
-            collection.find().toArray( (err, results) => {
-                currentTodos = results;
-                logResults(currentTodos[0]);
-                function logResults(todosForDisplay) {
-                    
-                    console.log(todosForDisplay.todoString);}
-                
-            })
-        })
-    }})
-;
-
 app.get('/', (req, res) => {
-    res.send('Get requests go here.');
+    var currentTodosTextResult;
+    var currentTodos;
+    MongoClient.connect(uri, (err, client) => {
+        if (err) {console.log(`db connection error : ${err}`)} else {
+            var db = client.db('todos');
+            db.collection('todoText', (err, collection) => {
+                collection.find().toArray( (err, results) => {
+                    currentTodos = results;
+                    logResults(currentTodos[0]);
+                    function logResults(todosForDisplay) {
+                        console.log(todosForDisplay.todoString);
+                        res.send(todosForDisplay.todoString);}
+                })
+            })
+        }});
 })
 
 app.post('/', urlencodedParser, (req, res) => {
