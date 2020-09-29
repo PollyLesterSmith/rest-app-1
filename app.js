@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
                     currentTodos = results;
                     logResults(currentTodos[0]);
                     function logResults(todosForDisplay) {
-                        console.log(todosForDisplay.todoString);
                         res.send(todosForDisplay.todoString);}
                 })
             })
@@ -28,7 +27,20 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', urlencodedParser, (req, res) => {
-    console.log(req.body.todoText);
+    var newTodos = req.body.todoText;
+    MongoClient.connect(uri, (err, client) => {
+        if (err) {console.log(`db connection error : ${err}`)} else {
+            var db = client.db('todos');
+            db.collection('todoText', (err, collection) => {
+                collection.find().toArray( (err, results) => {
+                    // DATA GOES IN HERE
+                    logResults();
+                    function logResults() {
+                        console.log(newTodos);}
+                })
+            })
+        }});
+
 })
 
 app.listen(3000);
