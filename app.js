@@ -4,8 +4,8 @@ const MongoClient = mongodb.MongoClient;
 const uri = `mongodb+srv://pollyadmin:${accessPass}@learningcluster.rsfog.mongodb.net/todos?retryWrites=true&w=majority`;
 const express = require('express');
 const app = express();
-//const bodyParser = require('body-parser');
-//const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const cors = require('cors');
 app.use(cors());
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
     res.send('Get requests go here.');
 })
 
-app.post('/', (req, res) => {
+app.post('/', urlencodedParser, (req, res) => {
     console.log(req.body);
 })
 
