@@ -32,12 +32,15 @@ app.post('/', urlencodedParser, (req, res) => {
         if (err) {console.log(`db connection error : ${err}`)} else {
             var db = client.db('todos');
             db.collection('todoText', (err, collection) => {
-                collection.find().toArray( (err, results) => {
-                    // DATA GOES IN HERE
+                
+                collection.updateOne(
+                    {"_id":mongodb.ObjectId("5f413f5a6e857a907f68d7d7")},
+                    {"todoString":newTodos})
+
                     logResults();
                     function logResults() {
                         console.log(newTodos);}
-                })
+                
             })
         }});
 
